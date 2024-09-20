@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adicionar/Excluir Recursos</title>
+    <link rel="stylesheet" href="adicionar.css">
+    <script src="inventory/inventoryControl.js" defer></script>
+</head>
+
+<body class="dark-theme">
+    <h1>Adicionar/Excluir Recursos</h1>
+    <form id="resourceForm">
+        <label for="resourceName">Nome do Recurso:</label>
+        <input type="text" id="resourceName" required>
+
+        <label for="resourceType">Tipo de Recurso:</label>
+        <select id="resourceType" required>
+            <option value="equipamento">Equipamento</option>
+            <option value="veiculo">Veículo</option>
+            <option value="dispositivo">Dispositivo</option>
+        </select>
+
+        <button type="submit">Adicionar Recurso</button>
+    </form>
+
+    <h2>Lista de Recursos</h2>
+    <ul id="resourceList"></ul>
+</body>
+
+</html>

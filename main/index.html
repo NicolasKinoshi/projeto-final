@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Principal</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="dark-theme">
+    <header>
+        <button id="addResourceBtn">Adicionar/Excluir Recursos</button>
+        <button onclick="window.location.href='inventory.html'">Ver Inventário</button>
+    </header>
+
+    <!-- Área onde o popup será carregado -->
+    <div id="popupContainer" class="popup-container" style="display: none;">
+        <div class="popup-content" id="popupContent"></div>
+    </div>
+
+    <script>
+        // Função para carregar adicionar.html dentro da página -- Coloquei aqui pra ficar mais fácil e não precisar mexer no script do popup
+        document.getElementById('addResourceBtn').addEventListener('click', function () {
+            fetch('adicionar.html')
+                .then(response => response.text())
+                .then(html => {
+                    document.getElementById('popupContent').innerHTML = html;
+                    document.getElementById('popupContainer').style.display = 'block';
+                    document.body.style.overflow = 'hidden';  // Evitar scroll ao abrir o popup
+                });
+        });
+
+        // Fechar popup quando clicar fora dele
+        document.getElementById('popupContainer').addEventListener('click', function (event) {
+            if (event.target === this) {
+                this.style.display = 'none';
+                document.body.style.overflow = 'auto';  // Restaurar scroll
+            }
+        });
+    </script>
+</body>
+
+</html>
